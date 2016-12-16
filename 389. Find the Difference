@@ -17,22 +17,26 @@ Explanation:
 
 class Solution {
 public:
-	char findTheDifference(string s, string t) {
-	    
+	char findTheDifference(string s, string t) {	
+		// s: [abcde]
+		// t: [abcdef]
+
 		map<char, int> mciMap;
 
 		for (int i = 0; i < s.length(); i++) {
 			mciMap[s[i]]++;
 		}
+		// mciMap: [11111]
 
 		for (int i = 0; i < t.length(); i++) {
 			mciMap[t[i]]--;
 		}
+		// mciMap: [00000-1]
 
 		for (map<char, int>::iterator it = mciMap.begin(); it != mciMap.end(); ++it) {
-		    if (it->second) {
+			if (it->second) {	//寻找非0
 				return it->first;
-		    }
+			}
 		}
 
 		return NULL;
