@@ -20,7 +20,7 @@ func TestRemoveElement(t *testing.T) {
 		if Golang.RemoveElement(test.arr, test.elem) != test.want {
 			t.Errorf("RemoveElement(%v, %v) = %d", test.arr, test.elem, test.want)
 		} else {
-			t.Logf("Equal(%v, %v) = %d", test.arr, test.elem, test.want)
+			t.Logf("RemoveElement(%v, %v) = %d", test.arr, test.elem, test.want)
 		}
 	}
 }
