@@ -7,22 +7,16 @@ import (
 
 func TestUniqueMorseRepresentations(t *testing.T) {
 	for _, test := range []struct {
-		J    string
-		S    string
-		want int
+		words []string
+		want  int
 	}{
-		{"aA", "a", 1},
-		{"aA", "A", 1},
-		{"aA", "aA", 2},
-		{"aA", "aAAbbbb", 3},
-		{"z", "ZZ", 0},
-		{"Bb", "aAAbbbb", 4},
+		{[]string{"gin", "zen", "gig", "msg"}, 2},
 	} {
-		result := Golang.UniqueMorseRepresentations(test.J, test.S)
+		result := Golang.UniqueMorseRepresentations(test.words)
 		if result != test.want {
-			t.Errorf("FAIL::UniqueMorseRepresentations(%v, %v) = %d, want: %d", test.J, test.S, result, test.want)
+			t.Errorf("FAIL::UniqueMorseRepresentations(%v) = %d, want: %d", test.words, result, test.want)
 		} else {
-			t.Logf("SUCCESS::UniqueMorseRepresentations(%v, %v) = %d", test.J, test.S, test.want)
+			t.Logf("SUCCESS::UniqueMorseRepresentations(%v) = %d", test.words, test.want)
 		}
 	}
 }

@@ -25,7 +25,7 @@ import (
 func NumJewelsInStones(J string, S string) int {
 	num := 0
 	for _, s := range S {
-		if strings.Index(J, string(s)) >= 0 {
+		if strings.IndexRune(J, s) >= 0 {
 			num++
 		}
 	}

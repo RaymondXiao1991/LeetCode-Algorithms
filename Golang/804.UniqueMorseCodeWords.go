@@ -18,6 +18,8 @@ There are 2 different transformations, "--...-." and "--...--.".
 
 package Golang
 
+import "bytes"
+
 // UniqueMorseRepresentations 特殊摩尔斯电码
 func UniqueMorseRepresentations(words []string) int {
 	var morseMap = map[rune]string{
@@ -49,12 +51,14 @@ func UniqueMorseRepresentations(words []string) int {
 		'z': "--..",
 	}
 
-	morseCode := ""
-
-	for _, w := range words {
-		for _, s := range w {
-			morseCode = append(morseCode, morseMap[rune(s)])
+	counter := make(map[string]int)
+	for _, word := range words {
+		var buf bytes.Buffer
+		for _, s := range word {
+			buf.WriteString(morseMap[s])
 		}
+		counter[buf.String()]++
 	}
 
+	return len(counter)
 }
