@@ -7,8 +7,8 @@ import (
 
 func TestRemoveElement(t *testing.T) {
 	for _, test := range []struct {
-		arr  []int
-		elem int
+		Arr  []int
+		Elem int
 		want int
 	}{
 		{[]int{1, 2, 2, 3, 2, 4}, 2, 3},
@@ -17,10 +17,10 @@ func TestRemoveElement(t *testing.T) {
 		{[]int{1, 3, 4}, 2, 3},
 		{[]int{2, 2, 3, 2, 4}, 2, 2},
 	} {
-		if Golang.RemoveElement(test.arr, test.elem) != test.want {
-			t.Errorf("RemoveElement(%v, %v) = %d", test.arr, test.elem, test.want)
+		if Golang.RemoveElement(test.Arr, test.Elem) != test.want {
+			t.Errorf("RemoveElement(%v, %v) = %d", test.Arr, test.Elem, test.want)
 		} else {
-			t.Logf("RemoveElement(%v, %v) = %d", test.arr, test.elem, test.want)
+			t.Logf("RemoveElement(%v, %v) = %d", test.Arr, test.Elem, test.want)
 		}
 	}
 }
