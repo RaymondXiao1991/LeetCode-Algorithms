@@ -14,9 +14,9 @@ func TestToLowerCase(t *testing.T) {
 		{"here", "here"},
 		{"LOVELY", "lovely"},
 	} {
-		result := Golang.ToLowerCase(test.Str)
-		if result != test.want {
-			t.Errorf("FAIL::ToLowerCase(%v) = %s, want: %s", test.Str, result, test.want)
+		got := Golang.ToLowerCase(test.Str)
+		if got != test.want {
+			t.Errorf("FAIL::ToLowerCase(%v) = %s, want: %s", test.Str, got, test.want)
 		} else {
 			t.Logf("SUCCESS::ToLowerCase(%v) = %s", test.Str, test.want)
 		}

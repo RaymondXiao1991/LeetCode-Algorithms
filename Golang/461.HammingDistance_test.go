@@ -13,9 +13,9 @@ func TestHammingDistance(t *testing.T) {
 	}{
 		{1, 4, 2},
 	} {
-		result := Golang.HammingDistance(test.X, test.Y)
-		if result != test.want {
-			t.Errorf("FAIL::HammingDistance(%v, %v) = %d, want: %d", test.X, test.Y, result, test.want)
+		got := Golang.HammingDistance(test.X, test.Y)
+		if got != test.want {
+			t.Errorf("FAIL::HammingDistance(%v, %v) = %d, want: %d", test.X, test.Y, got, test.want)
 		} else {
 			t.Logf("SUCCESS::HammingDistance(%v, %v) = %d", test.X, test.Y, test.want)
 		}

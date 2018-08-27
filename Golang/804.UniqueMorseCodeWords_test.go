@@ -12,9 +12,9 @@ func TestUniqueMorseRepresentations(t *testing.T) {
 	}{
 		{[]string{"gin", "zen", "gig", "msg"}, 2},
 	} {
-		result := Golang.UniqueMorseRepresentations(test.Words)
-		if result != test.want {
-			t.Errorf("FAIL::UniqueMorseRepresentations(%v) = %d, want: %d", test.Words, result, test.want)
+		got := Golang.UniqueMorseRepresentations(test.Words)
+		if got != test.want {
+			t.Errorf("FAIL::UniqueMorseRepresentations(%v) = %d, want: %d", test.Words, got, test.want)
 		} else {
 			t.Logf("SUCCESS::UniqueMorseRepresentations(%v) = %d", test.Words, test.want)
 		}
