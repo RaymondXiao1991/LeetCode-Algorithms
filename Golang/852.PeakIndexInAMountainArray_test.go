@@ -1,7 +1,6 @@
-package Golang_test
+package Golang
 
 import (
-	"Golang"
 	"testing"
 )
 
@@ -14,7 +13,7 @@ func TestPeakIndexInMountainArray(t *testing.T) {
 		{[]int{0, 2, 1, 0}, 1},
 		{[]int{2, 3, 1, 0}, 1},
 	} {
-		got := Golang.PeakIndexInMountainArray(test.Peak)
+		got := PeakIndexInMountainArray(test.Peak)
 		if got != test.want {
 			t.Errorf("FAIL::PeakIndexInMountainArray(%v) = %d, want: %d", test.Peak, got, test.want)
 		} else {

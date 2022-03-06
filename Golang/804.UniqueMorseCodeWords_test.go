@@ -1,7 +1,6 @@
-package Golang_test
+package Golang
 
 import (
-	"Golang"
 	"testing"
 )
 
@@ -12,7 +11,7 @@ func TestUniqueMorseRepresentations(t *testing.T) {
 	}{
 		{[]string{"gin", "zen", "gig", "msg"}, 2},
 	} {
-		got := Golang.UniqueMorseRepresentations(test.Words)
+		got := UniqueMorseRepresentations(test.Words)
 		if got != test.want {
 			t.Errorf("FAIL::UniqueMorseRepresentations(%v) = %d, want: %d", test.Words, got, test.want)
 		} else {

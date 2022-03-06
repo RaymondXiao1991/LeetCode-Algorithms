@@ -1,8 +1,7 @@
-package Golang_test
+package Golang
 
 import (
-	"Golang"
-	"common"
+	"Golang/common"
 	"testing"
 )
 
@@ -13,7 +12,7 @@ func TestFlipAndInvertImage(t *testing.T) {
 	}{
 		{[][]int{[]int{1, 1, 0}, []int{1, 0, 1}, []int{0, 0, 0}}, [][]int{[]int{1, 0, 0}, []int{0, 1, 0}, []int{1, 1, 1}}},
 	} {
-		got := Golang.FlipAndInvertImage(test.Imgs)
+		got := FlipAndInvertImage(test.Imgs)
 		for i, r := range got {
 			if common.SliceEqual(r, test.want[i]) {
 				//t.Errorf("FAIL::FlipAndInvertImage(%v) = %v, want: %v", test.Imgs, r, w)

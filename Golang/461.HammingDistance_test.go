@@ -1,7 +1,6 @@
-package Golang_test
+package Golang
 
 import (
-	"Golang"
 	"testing"
 )
 
@@ -13,7 +12,7 @@ func TestHammingDistance(t *testing.T) {
 	}{
 		{1, 4, 2},
 	} {
-		got := Golang.HammingDistance(test.X, test.Y)
+		got := HammingDistance(test.X, test.Y)
 		if got != test.want {
 			t.Errorf("FAIL::HammingDistance(%v, %v) = %d, want: %d", test.X, test.Y, got, test.want)
 		} else {

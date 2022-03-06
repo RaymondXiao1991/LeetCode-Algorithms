@@ -1,7 +1,6 @@
-package Golang_test
+package Golang
 
 import (
-	"Golang"
 	"testing"
 )
 
@@ -11,16 +10,14 @@ func TestRemoveElement(t *testing.T) {
 		Elem int
 		want int
 	}{
-		{[]int{1, 2, 2, 3, 2, 4}, 2, 3},
-		{[]int{1, 2, 3, 2, 4}, 2, 3},
-		{[]int{1, 2, 3, 2, 4}, 2, 3},
-		{[]int{1, 3, 4}, 2, 3},
-		{[]int{2, 2, 3, 2, 4}, 2, 2},
+		{[]int{3, 2, 2, 3}, 3, 2},
+		{[]int{0, 1, 2, 2, 3, 0, 4, 2}, 2, 5},
 	} {
-		if Golang.RemoveElement(test.Arr, test.Elem) != test.want {
-			t.Errorf("RemoveElement(%v, %v) = %d", test.Arr, test.Elem, test.want)
+		got := removeElement(test.Arr, test.Elem)
+		if got != test.want {
+			t.Errorf("FAIL::RemoveElement(%v, %v) = %d, want:%d", test.Arr, test.Elem, got, test.want)
 		} else {
-			t.Logf("RemoveElement(%v, %v) = %d", test.Arr, test.Elem, test.want)
+			t.Logf("SUCCESS::RemoveElement(%v, %v) = %d", test.Arr, test.Elem, test.want)
 		}
 	}
 }

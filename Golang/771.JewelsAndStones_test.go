@@ -1,7 +1,6 @@
-package Golang_test
+package Golang
 
 import (
-	"Golang"
 	"testing"
 )
 
@@ -18,7 +17,7 @@ func TestNumJewelsInStones(t *testing.T) {
 		{"z", "ZZ", 0},
 		{"Bb", "aAAbbbb", 4},
 	} {
-		got := Golang.NumJewelsInStones(test.J, test.S)
+		got := NumJewelsInStones(test.J, test.S)
 		if got != test.want {
 			t.Errorf("FAIL::NumJewelsInStones(%v, %v) = %d, want: %d", test.J, test.S, got, test.want)
 		} else {

@@ -1,7 +1,6 @@
-package Golang_test
+package Golang
 
 import (
-	"Golang"
 	"testing"
 )
 
@@ -14,7 +13,7 @@ func TestToLowerCase(t *testing.T) {
 		{"here", "here"},
 		{"LOVELY", "lovely"},
 	} {
-		got := Golang.ToLowerCase(test.Str)
+		got := ToLowerCase(test.Str)
 		if got != test.want {
 			t.Errorf("FAIL::ToLowerCase(%v) = %s, want: %s", test.Str, got, test.want)
 		} else {

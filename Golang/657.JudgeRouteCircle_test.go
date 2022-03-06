@@ -1,7 +1,6 @@
-package Golang_test
+package Golang
 
 import (
-	"Golang"
 	"testing"
 )
 
@@ -14,7 +13,7 @@ func TestJudgeCircle(t *testing.T) {
 		{"LL", false},
 		{"UDLR", true},
 	} {
-		got := Golang.JudgeCircle(test.Moves)
+		got := JudgeCircle(test.Moves)
 		if got != test.want {
 			t.Errorf("FAIL::JudgeCircle(%v) = %t, want: %t", test.Moves, got, test.want)
 		} else {

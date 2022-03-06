@@ -1,8 +1,7 @@
-package Golang_test
+package Golang
 
 import (
-	"Golang"
-	"common"
+	"Golang/common"
 	"testing"
 )
 
@@ -16,7 +15,7 @@ func TestSelfDividingNumbers(t *testing.T) {
 		{1, 11, []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 11}},
 		{1, 16, []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15}},
 	} {
-		got := Golang.SelfDividingNumbers(test.Left, test.Right)
+		got := SelfDividingNumbers(test.Left, test.Right)
 		if !common.SliceEqual(got, test.want) {
 			t.Errorf("FAIL::SelfDividingNumbers(%v, %v) = %v, want: %v", test.Left, test.Right, got, test.want)
 		} else {
