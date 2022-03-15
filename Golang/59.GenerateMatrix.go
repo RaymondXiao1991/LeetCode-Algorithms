@@ -20,42 +20,42 @@
 package Golang
 
 func generateMatrix(n int) [][]int {
-	mat := make([][]int, n)
+	matrix := make([][]int, n)
 	for i := 0; i < n; i++ {
-		mat[i] = make([]int, n)
+		matrix[i] = make([]int, n)
 	}
 
 	left, right, top, bottom := 0, n-1, 0, n-1
 	num, tar := 1, n*n
 	for num <= tar {
 		for i := left; i <= right; i++ {
+			matrix[top][i] = num // left to right.
 			num++
-			mat[top][i] = num // left to right.
 		}
 
 		top++
 
 		for i := top; i <= bottom; i++ {
+			matrix[i][right] = num // top to bottom.
 			num++
-			mat[i][right] = num // top to bottom.
 		}
 
 		right--
 
 		for i := right; i >= left; i-- {
+			matrix[bottom][i] = num // right to left.
 			num++
-			mat[bottom][i] = num // right to left.
 		}
 
 		bottom--
 
 		for i := bottom; i >= top; i-- {
+			matrix[i][left] = num // bottom to top.
 			num++
-			mat[i][left] = num // bottom to top.
 		}
 
 		left++
 	}
 
-	return mat
+	return matrix
 }

@@ -26,4 +26,3 @@ func SliceEqual(a, b interface{}) bool {
 	}
 	return true
 }
-

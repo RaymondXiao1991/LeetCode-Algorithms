@@ -14,12 +14,6 @@ k 是一个正整数，它的值小于或等于链表的长度。
 
 package Golang
 
-// Definition for singly-linked list.
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
 // 将数组转化为单链表
 func makeListNode(array []int) *ListNode {
 	if len(array) == 0 {
