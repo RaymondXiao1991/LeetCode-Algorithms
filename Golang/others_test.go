@@ -1,6 +1,9 @@
 package Golang
 
-import "testing"
+import (
+	"Golang/common"
+	"testing"
+)
 
 func TestSearchInArray(t *testing.T) {
 	for _, test := range []struct {
@@ -36,6 +39,23 @@ func TestBinarySearch(t *testing.T) {
 			t.Errorf("FAIL::SearchInArray(%v, %v, %v, %v) = %d, want: %d", test.arr, test.target, test.left, test.right, got, test.want)
 		} else {
 			t.Logf("SUCCESS::SearchInArray(%v, %v, %v, %v) = %d", test.arr, test.target, test.left, test.right, test.want)
+		}
+	}
+}
+
+func TestRotateKthFromEnd(t *testing.T) {
+	for _, test := range []struct {
+		head []int
+		k    int
+		want []int
+	}{
+		{[]int{1, 2, 3, 4, 5}, 3, []int{1, 2, 5, 4, 3}},
+	} {
+		got := rotateKthFromEnd(makeListNode(test.head), test.k)
+		if common.SliceEqual(makeArrayFromListNode(got), test.want) {
+			t.Errorf("FAIL::RotateLastK(%v, %v) = %v, want: %d", test.head, test.k, got, test.want)
+		} else {
+			t.Logf("SUCCESS::RotateLastK(%v, %v) = %v", test.head, test.k, test.want)
 		}
 	}
 }

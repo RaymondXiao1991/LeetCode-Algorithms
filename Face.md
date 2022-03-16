@@ -569,29 +569,62 @@ func partition(nums []int, left, right int) int {
   mmoe两个任务如何关联，有没有侧重
   mmoe比essm效果好，为什么
 6. 链表旋转最后k个节点
+1->2->3->4->5, 3, 1->2->5->4->3
 
     ``` golang
-    func rotateLastK(head *ListNode, k int) *ListNode {
 
-    }
+// 链表旋转最后k个节点
+// head: 1->2->3->4->5, k: 3, want: 1->2->5->4->3
+func rotateKthFromEnd(head *ListNode, k int)*ListNode {
+ if head == nil || head.Next == nil {
+  return head
+ }
+
+ // 找k点，链表分成两个
+ h1 := head
+ firstHalf := &ListNode{Next: h1}
+ for h1 != nil && k > 0 {
+  h1 = h1.Next
+  firstHalf.Next = h1.Next
+  k--
+ }
+
+ // 找到后部分链表
+ h2 := head
+ for h1 != nil {
+  h1, h2 = h1.Next, h2.Next
+ }
+
+ // 反转后部分链表
+ var tail *ListNode
+ for h2 != nil {
+  h2.Next, tail, h2 = tail, h2, h2.Next
+ }
+
+ // 两部分连接到一起
+ firstHalf.Next = tail
+
+ return firstHalf
+}
     ```
 
 ## 5
 
 1. 在寒武纪做芯片适配tf，包括tf device/kernel等
-  1.描述下Session.run流程
-  2.线程池何时创建，有哪些线程池
-  3.怎么创建op，写过哪些op，op在何时实例化
-  4.训练io优化   prefetch
-  5.horovod架构
-  6.何时进行梯度规约，怎么保证不同worker因规约死锁
-  7.estimator做了哪些开发  
-
-2. 大规模embedding
+2. 描述下Session.run流程
+3. 线程池何时创建，有哪些线程池
+    TODO
+4. 怎么创建op，写过哪些op，op在何时实例化
+5. 训练io优化   prefetch
+6. horovod架构
+7. 何时进行梯度规约，怎么保证不同worker因规约死锁
+8. estimator做了哪些开发  
+9. 大规模embedding
 
 ## 6
 
 1. 编程题：路径简化
+    TODO
 2. hashmap实现
 3. lr loss function
    为什么要用simoid
@@ -625,6 +658,7 @@ func partition(nums []int, left, right int) int {
 ## 8
 
 1. 链表partition  数组partition
+    TODO
 2. hashmap，二叉树遍历
 3. 选一个自己最熟悉的算法
    Svm 最大化间隔
@@ -637,6 +671,7 @@ func partition(nums []int, left, right int) int {
 ## 9
 
 1. 找到全部的从根节点到叶子的和为指定值的序列
+    TODO
 2. hashmap原理，怎么解决冲突，排序算法有哪些，时间复杂度
 3. 京东机器学习平台
    分布式任务调度  k8s
@@ -653,25 +688,36 @@ func partition(nums []int, left, right int) int {
 
 1. java 1.8 新增加的特性，对函数式编程的理解
 2. 对final的理解
+    TODO
 3. 线程池参数设置
+    TODO
 4. java中Lock和synchronized
+    TODO
 5. 什么是AOP?使用场景?实现原理是什么
 6. 一致性hash算法
+    TODO
 7. kafka，使用场景，如何保证顺序消费
+    TODO
 8. InnoDB为什么使用b+树，b+树相比较其他树的优点
 
 > 算法题
 
 1. 根据给定值旋转数组
+    TODO
 2. 返回两数之和为某值的数组下标
+    TODO
 
 ## 11
 
 1. 二分查找
 2. 上述的二分查找题变形了一下，在排序数组中找小于目标数的最大的数的位置
+    TODO
 3. 最大子数组和
+    TODO
 4. 环数组最大子数组和
+    TODO
 5. 判断链表中是否有环
+    TODO
 
 ## 12
 
@@ -689,7 +735,9 @@ func partition(nums []int, left, right int) int {
 > 算法
 
 1. 冒泡排序
+    TODO
 2. 单链表反转
+    TODO
 
 ## 13
 
@@ -709,35 +757,46 @@ func partition(nums []int, left, right int) int {
 > 算法题
 
 1. 单向链表反转
+    TODO
 
 ## 14
 
 1. java中list，set和map的区别及底层实现，及动态数组扩容，是否线程安全
     哈希碰撞
 2. 进程、线程、进程、线程间通信
+    TODO
 
 > 算法题：
 
 1. 二叉树，平衡二叉树，先、中、后遍历、按层序遍历（BFS）、左视图
+    TODO
 2. 快排
+    TODO
 3. 用两个栈实现一个队列
+    TODO
 
 ## 15
 
 1. list，set和map的区别及底层实现
 2. udp，tcp，三次握手四次挥手
+    TODO
 3. TIME_WAIT状态，CLOSE_WAIT状态
+    TODO
 4. io复用
+    TODO
 5. 锁，死锁，redis，设计模式
+    TODO
 
 > 算法题：
 
-1. 快排，二叉树先、中、后序、层序遍历，左视图，OK；
+1. 快排，二叉树先、中、后序、层序遍历，左视图
+    TODO
 2. 一个有序数组，后M个数通过转换排到前面，例如：
             1 2 3 4 5 6 7 8 9
             7 8 9 1 2 3 4 5 6
             时间复杂度<=O(N)
             空间复杂度=O(1)
+    TODO
 
 ## 16
 
@@ -749,6 +808,7 @@ func partition(nums []int, left, right int) int {
 1. 详细介绍摇钱树Flink实时项目数据源接入到数据处理再到数据的落地，日处理量2千万
 2. Canal同步mysql binlog 如何保证数据一致性？
 3. Kafka leader挂掉后，如何选举新的leader?
+    TODO
 4. 消费者消费Kafka partition如何分配？
 5. 生产者写入Kafka ack策略？
 6. Flink Sql使用过哪些算子？基本的sum count  join group 等。是否自定义过UDF UDTF？
@@ -760,9 +820,11 @@ func partition(nums []int, left, right int) int {
 11. Flink 任务反压问题如何排查？
 12. 数据倾斜如何优化？
     两阶段处理
+    TODO
 13. Flink 监控信息如何配置？如何查看？
 14. Flink 配置文件有改过什么？
 15. 机器负载高如何排查？
+    TODO
 16. Jdk 1.8垃圾回收
 17. Redis常用数据结构
 
@@ -771,6 +833,7 @@ func partition(nums []int, left, right int) int {
 > c++：
 
 1. 虚析构函数：虚析构函数的使用，虚函数实现方式
+    TODO
 2. 容器：常用vector、list、map、queue等，遍历迭代器删除元素
 3. c++ 智能指针的种类和各自特点
 4. map/unordered_map的特点和使用场景
@@ -778,47 +841,64 @@ func partition(nums []int, left, right int) int {
 > 网络框架：
 
 1. epoll+多线程模型实现
+    TODO
 
 > 代码
 
 1. 实现二叉树层次遍历
+    TODO
 
 ## 19
 
 1. ceph读写的io路径，osd端的处理流程
 2. ceph存储引擎：filestore和bluestore的原理
 3. rocksdb的读写流程
+    TODO
 4. c++ 智能指针
 5. 右值引用
 6. 代码实现BlockingQueue
+    TODO
 
 ## 20
 
 1. redis rdb的原理
+    TODO
 2. 存储概念的理解：块、对象、文件
+    TODO
 3. C++ 智能指针: unique_ptr shared_ptr的使用
 4. C++ 右值引用，移动构造函数
 5. 虚析构函数的作用
+    TODO
 6. 大端小端
+    TODO
 7. Leveldb的原理，布隆过滤器、compact的原理
+    TODO
 8. 写代码：实现一个BlockingQueue
+    TODO
 
 ## 21
 
 1. redis 常用数据结构以及底层实现
 2. redis 分布式锁的原理
+    TODO
 3. zk分布式锁的方案
+    TODO
 4. 如何解决缓存雪崩、击穿、穿透问题
+    TODO
 5. mysql分库分表
+    TODO
 6. 数据库ID策略
     snowflake
+    TODO
 7. mysql B+树索引的优势
 8. 限流策略
+    TODO
 
 > Java基础
 
 1. hashmap实现原理
 2. 线程池原理
+    TODO
 3. volatile关键字原理
 
 > JVM相关
@@ -829,6 +909,7 @@ func partition(nums []int, left, right int) int {
 
 1. 分布式全局递增Id实现方式，
     雪花算法模式，mysql ,redis
+    TODO
 2. 数据落mysql定时同步到hive，其他方案
     canal
 3. Java线上排查工具
@@ -838,8 +919,10 @@ func partition(nums []int, left, right int) int {
 6. nio和bio有什么区别
 7. 实现top100订单销售额
     两种方案：1.使用redis zset做，维护一个长度 2. 小顶堆
+    TODO
 8. A和B值互换
 9. 数组数字 组成最大的数值
+    TODO
 
 ## 23
 
@@ -854,10 +937,13 @@ func partition(nums []int, left, right int) int {
 ## 24
 
 1. Redis常用数据结构使用和数据清除策略
+    TODO
 2. 实现top100订单销售额，在数据不断增加的情况下优化
 3. Mysql索引通过B+和红黑树实现的差异和优劣
 4. GC算法和生命周期
+    TODO
 5. 多线程原理和并发锁的介绍
+    TODO
 6. 算法题：a和b值互换
     将两者之和存入a，值互换 b 即和减去自身，a 即和减去 b
     a = a + b; b = a - b; a = a - b;
