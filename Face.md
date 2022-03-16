@@ -427,7 +427,7 @@ func searchInArray(nums []int, start, end, elem int) int {
    训练数据量 6h 2亿
    分布式：
    数据读取：
-   tf使用方面时间久记不起来了
+   tf使用方面
 4. 用户兴趣表示
    特征分组
    特征交差
@@ -544,10 +544,11 @@ func partition(nums []int, left, right int) int {
 ## 4
 
 1. hashmap怎么实现，怎么解决冲突
+    见上。
 2. paddlepaddle/tf
   tensorflow使用版本 1.14
   特征处理使用tf.feature_column
-  Embedding维度过大问题怎么解决，不了解
+  Embedding维度过大问题怎么解决
   embedding最大维度，5千万
   低频id过滤问题
 3. 双塔召回
@@ -562,12 +563,18 @@ func partition(nums []int, left, right int) int {
   与场景有关，有些场景无效
   样本选取，正负样本选取
 4. 排序
-   Xgboost升级到dnn，为什么
+   xgboost升级到dnn，为什么
    din序列特征怎么处理的，tf.feature_column.sequence_xxx
 5. ctr/cvr
   mmoe两个任务如何关联，有没有侧重
   mmoe比essm效果好，为什么
 6. 链表旋转最后k个节点
+
+    ``` golang
+    func rotateLastK(head *ListNode, k int) *ListNode {
+
+    }
+    ```
 
 ## 5
 
@@ -590,7 +597,7 @@ func partition(nums []int, left, right int) int {
    为什么要用simoid
    lr怎么实现多分类  1.softmax 2.多个lr
    两种多分类问题区别
-   初始化方法 了解少
+   初始化方法
    优化器  怎么算梯度
    过拟合 怎么解决
 4. xgboost
